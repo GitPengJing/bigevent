@@ -54,6 +54,12 @@
                     alert(res.msg)
                 }
             })
+    });
+    
+    $('.input_pass').keyup(function (e) {
+        if (e.keyCode === 13) {
+            $('#logbtn').click();
+        }
     })
 
 // 2.ajax请求
