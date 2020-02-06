@@ -33,29 +33,32 @@
 
 </body>
 <script src="./js/jquery-1.12.4.min.js"></script>
+<script src="./js/util/config.js"></script>
+<script src="./js/util/user.js"></script>
 <script>
 
     $('#logbtn').click(function () {
         // 1.获取用户输入的信息 
         var name = $('.input_txt').val().trim();
         var password = $('.input_pass').val().trim();
+        // 简单判断用户输入是否为空
         if (name.length === 0 || password.length === 0) {
             alert('用户名或密码为空');
             return;
         }
-        $.post('http://localhost:8000/admin/login',
-            { 'user_name': name, 'password': password }).then(function (res) {
-                console.log(res);
-                if (res.code == 200) {
-                    alert('登录成功');
-                    window.location.href = './index.html';
-                }
-                else {
-                    alert(res.msg)
-                }
-            })
+        // 调用模块化开发的用户登录函数（调用接口）
+        user.login(name, password).then(function (res) {
+            console.log(res);
+            if (res.code == 200) {
+                alert('登录成功');
+                window.location.href = './index.html';
+            }
+            else {
+                alert(res.msg)
+            }
+        })
     });
-
+    // Enter键登录
     $('.input_pass').keyup(function (e) {
         if (e.keyCode === 13) {
             $('#logbtn').click();
