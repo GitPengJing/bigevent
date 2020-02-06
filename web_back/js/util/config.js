@@ -10,4 +10,11 @@ var APILIST = {
     user_logout: BASEURL + '/admin/logout',
     // 获取用户信息
     user_getuser: BASEURL + '/admin/getuser',
+
+
+    // 获取文章类别
+    category_get: BASEURL + '/admin/category_search',
+    
+
+
 }
