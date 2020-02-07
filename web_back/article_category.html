@@ -119,11 +119,27 @@
                 }
             })
 
-        })
+        });
         // 点击关闭按钮关闭模态框
         $("#model_shutoff").click(function () {
             $('#addModal').modal('hide');
+        });
+
+        // 3.删除文章类别
+        // (1)给删除按钮添加点击事件
+        $('#category_list').on('click', '.del', function () {
+            var id = $(this).attr('data-id');
+            // (2)请求接口
+            category.delete(id).then(function (res) {
+                if (res.code === 200) {
+                    getAndShow();
+                }
+                else {
+                    alert(res.msg);
+                }
+            })
         })
+
     </script>
 
 </body>

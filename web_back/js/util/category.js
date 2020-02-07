@@ -10,6 +10,12 @@ var category = {
             'name': name,
             'slug': slug
         })
-    }
+    },
+    // 删除文章类别
+    delete: function (id) {
+        return $.post(APILIST.category_delete, {
+            'id': id
+        })
+    },
 
 }
