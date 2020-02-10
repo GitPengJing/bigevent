@@ -117,15 +117,15 @@
         // 1.取出文章类型并显示在表格中
         getAndShow();
         function getAndShow() {
-            category.get().then(function (res) {
-                console.log(res);
+            category.get().then(res => {
+                // console.log(res);
                 var htmlStr = template('cate_list', res);
                 $('#category_list').html(htmlStr);
             });
         };
         // 2.添加文章类别并显示
         // (1)给新增按钮添加点击事件
-        $('#model_add').click(function () {
+        $('#model_add').click(() => {
             // (2)手机用户输入的信息并判断
             var name = $('#recipient-name').val().trim();
             var slug = $('#recipient-slug').val().trim();
@@ -134,7 +134,7 @@
                 return
             }
             // (3)请求接口
-            category.add(name, slug).then(function (res) {
+            category.add(name, slug).then(res => {
                 // console.log(res);
                 if (res.code === 200) {
                     // (4)把数据渲染到页面上
@@ -151,16 +151,14 @@
 
         });
         // 点击关闭按钮关闭模态框
-        $("#model_shutoff").click(function () {
-            $('#addModal').modal('hide');
-        });
+        $("#model_shutoff").click(() => $('#addModal').modal('hide'));
 
         // 3.删除文章类别
         // (1)给删除按钮添加点击事件
         $('#category_list').on('click', '.del', function () {
             var id = $(this).attr('data-id');
             // (2)请求接口
-            category.delete(id).then(function (res) {
+            category.delete(id).then(res => {
                 if (res.code === 200) {
                     getAndShow();
                 }
@@ -188,7 +186,7 @@
                     alert('不能为空')
                     return
                 }
-                category.edit(id, new_name, new_slug).then(function (res) {
+                category.edit(id, new_name, new_slug).then(res => {
                     // console.log(res);
                     if (res.code === 200) {
                         // 编辑成功
@@ -203,9 +201,7 @@
             })
         })
         // 点击关闭按钮关闭编辑模态框
-        $("#model_off").click(function () {
-            $('#editModal').modal('hide');
-        });
+        $("#model_off").click(() => $('#editModal').modal('hide'));
 
     </script>
 

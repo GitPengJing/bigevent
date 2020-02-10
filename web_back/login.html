@@ -47,8 +47,8 @@
             return;
         }
         // 调用模块化开发的用户登录函数（调用接口）
-        user.login(name, password).then(function (res) {
-            console.log(res);
+        user.login(name, password).then(res => {
+            // console.log(res);
             if (res.code == 200) {
                 alert('登录成功');
                 window.location.href = './index.html';
@@ -59,7 +59,7 @@
         })
     });
     // Enter键登录
-    $('.input_pass').keyup(function (e) {
+    $('.input_pass').keyup(e => {
         if (e.keyCode === 13) {
             $('#logbtn').click();
         }

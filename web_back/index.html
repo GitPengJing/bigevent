@@ -61,7 +61,7 @@
     <script src="./js/util/user.js"></script>
     <script>
         // 退出回到登录页
-        $('#logoutbtn').click(function () {
+        $('#logoutbtn').click(() => {
             // 请求接口
             user.logout().then(function (res) {
                 // console.log(res);
@@ -74,8 +74,8 @@
             })
         });
         // 获取管理员信息
-        user.getuser().then(function (res) {
-            console.log(res);
+        user.getuser().then(res => {
+            // console.log(res);
             if (res.code == 200) {
                 $('#userName').html(res.data.nickname);
                 $('.userImg').attr('src', res.data.user_pic);
@@ -84,7 +84,7 @@
                 alert(res.msg);
             }
         })
-        
+
 
 
     </script>

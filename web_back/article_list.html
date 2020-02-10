@@ -70,7 +70,7 @@
 
             <div class="row text-center">
                 <ul class="pagination pagination-sm" id="pagination">
-                    
+
                 </ul>
             </div>
 
@@ -113,7 +113,7 @@
     <script>
         var curPage = 1;
         // 1.获取所有分类并显示
-        category.get().then(function (res) {
+        category.get().then(res => {
             // 使用模板引擎技术来渲染数据
             var htmlStr = template("cate_temp", res);
             // console.log(htmlStr);
@@ -121,7 +121,7 @@
         });
         // 2.获取文章并显示
         function getAndShow() {
-            article.get(curPage).then(function (res) {
+            article.get(curPage).then(res => {
                 if (res.code === 200) {
                     // （1） arttempaltte渲染到表格
                     var htmlStr = template('article_list', res);
