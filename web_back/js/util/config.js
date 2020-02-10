@@ -1,9 +1,9 @@
 // 接口地址
 // 基地址
-var BASEURL = 'http://localhost:8000';
+const BASEURL = 'http://localhost:8000';
 
 // 接口列表
-var APILIST = {
+const APILIST = {
     // 用户登录
     user_login: BASEURL + '/admin/login',
     // 用户退出

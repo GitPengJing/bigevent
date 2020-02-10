@@ -1,9 +1,10 @@
 // 文章类别管理
-var category = {
+const category = {
     // 获取文章类别
     get: function () {
         return $.get(APILIST.category_get)
     },
+
     // 添加文章类别
     add: function (name, slug) {
         return $.post(APILIST.category_add,
@@ -12,6 +13,7 @@ var category = {
                 'slug': slug
             })
     },
+
     // 删除文章类别
     delete: function (id) {
         return $.post(APILIST.category_delete,
@@ -19,6 +21,7 @@ var category = {
                 'id': id
             })
     },
+
     // 编辑文章类别
     edit: function (id, name, slug) {
         return $.post(APILIST.category_edit,

@@ -1,12 +1,9 @@
 // 文章管理
-var article = {
+const article = {
     // 获取文章
-    get: function (state, page, id, type) {
+    get: function (page) {
         return $.get(APILIST.article_get, {
-            'state': state,
             'page': page,
-            'id': id,
-            'type': type
         })
     }
 }
